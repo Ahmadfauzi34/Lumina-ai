@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { GoogleGenAI } from '@google/genai';
 import type { Attachment } from '../../types';
+import { LoggerService } from './logger.service';
 
 export interface GeminiConfig {
   model?: string;
@@ -23,6 +24,7 @@ const DEFAULT_CONFIG: Required<GeminiConfig> = {
 @Injectable({ providedIn: 'root' })
 export class GeminiService {
   private ai: any;
+  private logger = inject(LoggerService);
 
   private getAi() {
     if (!this.ai) {
@@ -147,7 +149,7 @@ export class GeminiService {
             return await chatSession.sendMessageStream(opts);
           } catch (error: unknown) {
             const err = error as { status?: string, message?: string };
-            console.error(`Gemini API Error with model ${modelsToTry[currentModelIdx]}:`, error);
+            this.logger.error(`Gemini API Error with model ${modelsToTry[currentModelIdx]}:`, error);
             
             const isExhausted = err?.status === 'RESOURCE_EXHAUSTED' || err?.message?.includes('429') || err?.message?.includes('quota');
             const isUnavailable = err?.status === '503' || err?.message?.includes('503');
