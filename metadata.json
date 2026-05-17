@@ -1,0 +1,6 @@
+{
+  "name": "Remix: Lumina Agentic Workspace",
+  "description": "Multi-agent AI ecosystem with interactive Python workspace (Pyodide), automated data analysis pipeline, and real-time reasoning visualization.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}

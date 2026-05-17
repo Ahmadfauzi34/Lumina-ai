@@ -1,0 +1,131 @@
+
+/app/applet/src/app/app.ts
+    3:10  error  'dbQuery' is defined but never used                                                                                                                                     @typescript-eslint/no-unused-vars
+  160:5   error  Prefer using the inject() function over constructor parameter injection. Use Angular's migration schematic to automatically refactor: ng generate @angular/core:inject  @angular-eslint/prefer-inject
+  161:5   error  Prefer using the inject() function over constructor parameter injection. Use Angular's migration schematic to automatically refactor: ng generate @angular/core:inject  @angular-eslint/prefer-inject
+  162:5   error  Prefer using the inject() function over constructor parameter injection. Use Angular's migration schematic to automatically refactor: ng generate @angular/core:inject  @angular-eslint/prefer-inject
+  163:5   error  Prefer using the inject() function over constructor parameter injection. Use Angular's migration schematic to automatically refactor: ng generate @angular/core:inject  @angular-eslint/prefer-inject
+  303:33  error  Unexpected any. Specify a different type                                                                                                                                @typescript-eslint/no-explicit-any
+  305:11  error  'currentInputText' is never reassigned. Use 'const' instead                                                                                                             prefer-const
+  306:11  error  'currentInputAttachments' is never reassigned. Use 'const' instead                                                                                                      prefer-const
+  324:13  error  'runToolCalls' is never reassigned. Use 'const' instead                                                                                                                 prefer-const
+  324:27  error  Unexpected any. Specify a different type                                                                                                                                @typescript-eslint/no-explicit-any
+  338:26  error  Unexpected any. Specify a different type                                                                                                                                @typescript-eslint/no-explicit-any
+  351:25  error  Unexpected any. Specify a different type                                                                                                                                @typescript-eslint/no-explicit-any
+  365:19  error  Unexpected any. Specify a different type                                                                                                                                @typescript-eslint/no-explicit-any
+   50:28  error  Use built-in control flow instead of directive ngIf                                                                                                                     @angular-eslint/template/prefer-control-flow
+   51:15  error  click must be accompanied by either keyup, keydown or keypress event for accessibility                                                                                  @angular-eslint/template/click-events-have-key-events
+   51:15  error  Elements with interaction handlers must be focusable                                                                                                                    @angular-eslint/template/interactive-supports-focus
+   53:39  error  Use built-in control flow instead of directive ngForOf                                                                                                                  @angular-eslint/template/prefer-control-flow
+   57:25  error  Use built-in control flow instead of directive ngIf                                                                                                                     @angular-eslint/template/prefer-control-flow
+   66:24  error  Use built-in control flow instead of directive ngIf                                                                                                                     @angular-eslint/template/prefer-control-flow
+   79:15  error  click must be accompanied by either keyup, keydown or keypress event for accessibility                                                                                  @angular-eslint/template/click-events-have-key-events
+   79:15  error  Elements with interaction handlers must be focusable                                                                                                                    @angular-eslint/template/interactive-supports-focus
+   86:15  error  click must be accompanied by either keyup, keydown or keypress event for accessibility                                                                                  @angular-eslint/template/click-events-have-key-events
+   86:15  error  Elements with interaction handlers must be focusable                                                                                                                    @angular-eslint/template/interactive-supports-focus
+   97:24  error  Use built-in control flow instead of directive ngIf                                                                                                                     @angular-eslint/template/prefer-control-flow
+  100:49  error  Use built-in control flow instead of directive ngForOf                                                                                                                  @angular-eslint/template/prefer-control-flow
+  102:21  error  Use built-in control flow instead of directive ngIf                                                                                                                     @angular-eslint/template/prefer-control-flow
+
+/app/applet/src/app/chat-input.component.ts
+  68:3   error  Type string trivially inferred from a string literal, remove type annotation                                                                            @typescript-eslint/no-inferrable-types
+  69:3   error  Type boolean trivially inferred from a boolean literal, remove type annotation                                                                          @typescript-eslint/no-inferrable-types
+  72:13  error  Output bindings, including aliases, should not be named "on", nor prefixed with it (https://angular.dev/guide/components/outputs#choosing-event-names)  @angular-eslint/no-output-on-prefix
+  74:13  error  Output bindings, including aliases, should not be named "on", nor prefixed with it (https://angular.dev/guide/components/outputs#choosing-event-names)  @angular-eslint/no-output-on-prefix
+  75:13  error  Output bindings, including aliases, should not be named "on", nor prefixed with it (https://angular.dev/guide/components/outputs#choosing-event-names)  @angular-eslint/no-output-on-prefix
+  13:75  error  Use built-in control flow instead of directive ngIf                                                                                                     @angular-eslint/template/prefer-control-flow
+  14:30  error  Use built-in control flow instead of directive ngForOf                                                                                                  @angular-eslint/template/prefer-control-flow
+  17:17  error  Use built-in control flow instead of directive ngIf                                                                                                     @angular-eslint/template/prefer-control-flow
+  20:17  error  Use built-in control flow instead of directive ngIf                                                                                                     @angular-eslint/template/prefer-control-flow
+  53:18  error  Use built-in control flow instead of directive ngIf                                                                                                     @angular-eslint/template/prefer-control-flow
+
+/app/applet/src/app/chat-message.component.ts
+  77:3   warning  Lifecycle interface 'OnChanges' should be implemented for method 'ngOnChanges'. (https://angular.dev/style-guide#use-lifecycle-hook-interfaces)  @angular-eslint/use-lifecycle-interface
+  13:33  error    Use built-in control flow instead of directive ngIf                                                                                              @angular-eslint/template/prefer-control-flow
+  15:17  error    Use built-in control flow instead of directive ngIf                                                                                              @angular-eslint/template/prefer-control-flow
+  16:17  error    Use built-in control flow instead of directive ngIf                                                                                              @angular-eslint/template/prefer-control-flow
+  18:33  error    Use built-in control flow instead of directive ngIf                                                                                              @angular-eslint/template/prefer-control-flow
+  22:15  error    Use built-in control flow instead of directive ngIf                                                                                              @angular-eslint/template/prefer-control-flow
+  23:17  error    Use built-in control flow instead of directive ngIf                                                                                              @angular-eslint/template/prefer-control-flow
+  24:34  error    Use built-in control flow instead of directive ngForOf                                                                                           @angular-eslint/template/prefer-control-flow
+  25:21  error    Use built-in control flow instead of directive ngIf                                                                                              @angular-eslint/template/prefer-control-flow
+  26:21  error    Use built-in control flow instead of directive ngIf                                                                                              @angular-eslint/template/prefer-control-flow
+  33:24  error    Use built-in control flow instead of directive ngIf                                                                                              @angular-eslint/template/prefer-control-flow
+  34:17  error    Use built-in control flow instead of directive ngIf                                                                                              @angular-eslint/template/prefer-control-flow
+  35:13  error    click must be accompanied by either keyup, keydown or keypress event for accessibility                                                           @angular-eslint/template/click-events-have-key-events
+  35:13  error    Elements with interaction handlers must be focusable                                                                                             @angular-eslint/template/interactive-supports-focus
+  45:26  error    Use built-in control flow instead of directive ngIf                                                                                              @angular-eslint/template/prefer-control-flow
+  46:26  error    Use built-in control flow instead of directive ngIf                                                                                              @angular-eslint/template/prefer-control-flow
+  55:17  error    Use built-in control flow instead of directive ngIf                                                                                              @angular-eslint/template/prefer-control-flow
+  56:37  error    Use built-in control flow instead of directive ngIf                                                                                              @angular-eslint/template/prefer-control-flow
+  57:20  error    Use built-in control flow instead of directive ngIf                                                                                              @angular-eslint/template/prefer-control-flow
+
+/app/applet/src/app/db.service.ts
+  39:39  error  Unexpected empty method 'stores'                                                @typescript-eslint/no-empty-function
+  44:28  error  Unexpected any. Specify a different type                                        @typescript-eslint/no-explicit-any
+  65:38  error  Type string trivially inferred from a string literal, remove type annotation    @typescript-eslint/no-inferrable-types
+  81:80  error  Unexpected any. Specify a different type                                        @typescript-eslint/no-explicit-any
+  99:60  error  Type boolean trivially inferred from a boolean literal, remove type annotation  @typescript-eslint/no-inferrable-types
+
+/app/applet/src/app/gemini.service.ts
+   4:10  error  'toolRegistry' is defined but never used  @typescript-eslint/no-unused-vars
+  11:11  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  29:57  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  46:63  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  47:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  61:33  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/app/applet/src/app/markdown-renderer.ts
+   1:39  error  'SecurityContext' is defined but never used                                                                                                                             @typescript-eslint/no-unused-vars
+  24:3   error  Type string trivially inferred from a string literal, remove type annotation                                                                                            @typescript-eslint/no-inferrable-types
+  27:15  error  Prefer using the inject() function over constructor parameter injection. Use Angular's migration schematic to automatically refactor: ng generate @angular/core:inject  @angular-eslint/prefer-inject
+  27:48  error  Prefer using the inject() function over constructor parameter injection. Use Angular's migration schematic to automatically refactor: ng generate @angular/core:inject  @angular-eslint/prefer-inject
+
+/app/applet/src/app/sidebar.component.ts
+  66:3   error  Type boolean trivially inferred from a boolean literal, remove type annotation                                                                          @typescript-eslint/no-inferrable-types
+  68:3   error  Type string trivially inferred from a string literal, remove type annotation                                                                            @typescript-eslint/no-inferrable-types
+  71:13  error  Output bindings, including aliases, should not be named "on", nor prefixed with it (https://angular.dev/guide/components/outputs#choosing-event-names)  @angular-eslint/no-output-on-prefix
+  72:13  error  Output bindings, including aliases, should not be named "on", nor prefixed with it (https://angular.dev/guide/components/outputs#choosing-event-names)  @angular-eslint/no-output-on-prefix
+  73:13  error  Output bindings, including aliases, should not be named "on", nor prefixed with it (https://angular.dev/guide/components/outputs#choosing-event-names)  @angular-eslint/no-output-on-prefix
+  74:13  error  Output bindings, including aliases, should not be named "on", nor prefixed with it (https://angular.dev/guide/components/outputs#choosing-event-names)  @angular-eslint/no-output-on-prefix
+  10:5   error  click must be accompanied by either keyup, keydown or keypress event for accessibility                                                                  @angular-eslint/template/click-events-have-key-events
+  10:5   error  Elements with interaction handlers must be focusable                                                                                                    @angular-eslint/template/interactive-supports-focus
+  32:9   error  click must be accompanied by either keyup, keydown or keypress event for accessibility                                                                  @angular-eslint/template/click-events-have-key-events
+  32:9   error  Elements with interaction handlers must be focusable                                                                                                    @angular-eslint/template/interactive-supports-focus
+  32:34  error  Use built-in control flow instead of directive ngForOf                                                                                                  @angular-eslint/template/prefer-control-flow
+  49:31  error  Use built-in control flow instead of directive ngForOf                                                                                                  @angular-eslint/template/prefer-control-flow
+  60:15  error  Use built-in control flow instead of directive ngIf                                                                                                     @angular-eslint/template/prefer-control-flow
+
+/app/applet/src/app/tools/implementations/file-tools.ts
+   15:28  error  Unexpected any. Specify a different type         @typescript-eslint/no-explicit-any
+   27:13  error  'text' is never reassigned. Use 'const' instead  prefer-const
+   57:28  error  Unexpected any. Specify a different type         @typescript-eslint/no-explicit-any
+   98:28  error  Unexpected any. Specify a different type         @typescript-eslint/no-explicit-any
+  107:33  error  Unexpected any. Specify a different type         @typescript-eslint/no-explicit-any
+  144:28  error  Unexpected any. Specify a different type         @typescript-eslint/no-explicit-any
+  154:33  error  Unexpected any. Specify a different type         @typescript-eslint/no-explicit-any
+
+/app/applet/src/app/tools/registry.ts
+   12:22   error  'args' is defined but never used                          @typescript-eslint/no-unused-vars
+   12:28   error  Unexpected any. Specify a different type                  @typescript-eslint/no-explicit-any
+   18:64   error  Unexpected any. Specify a different type                  @typescript-eslint/no-explicit-any
+   36:28   error  Unexpected any. Specify a different type                  @typescript-eslint/no-explicit-any
+   60:28   error  Unexpected any. Specify a different type                  @typescript-eslint/no-explicit-any
+   87:28   error  Unexpected any. Specify a different type                  @typescript-eslint/no-explicit-any
+  110:28   error  Unexpected any. Specify a different type                  @typescript-eslint/no-explicit-any
+  115:13   error  'memoriesArray' is never reassigned. Use 'const' instead  prefer-const
+  116:13   error  'keys' is never reassigned. Use 'const' instead           prefer-const
+  188:27   error  Unexpected any. Specify a different type                  @typescript-eslint/no-explicit-any
+  191:72   error  Unexpected any. Specify a different type                  @typescript-eslint/no-explicit-any
+  194:109  error  Unexpected any. Specify a different type                  @typescript-eslint/no-explicit-any
+
+/app/applet/src/app/types.ts
+  31:13  error  Use an `interface` instead of a `type`  @typescript-eslint/consistent-type-definitions
+
+/app/applet/src/app/utils.ts
+   2:10  error  'from' is defined but never used          @typescript-eslint/no-unused-vars
+  33:39  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 105 problems (104 errors, 1 warning)
+  14 errors and 1 warning potentially fixable with the `--fix` option.
+
