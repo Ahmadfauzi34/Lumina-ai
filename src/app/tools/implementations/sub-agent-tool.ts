@@ -310,7 +310,6 @@ export const subAgentTools: Record<string, ToolRegistryEntry> = {
               });
               
               let isDone = false;
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
               let nextInput: any = { message: '' };
               let inThoughtBlock = false;
               outputText = '';
