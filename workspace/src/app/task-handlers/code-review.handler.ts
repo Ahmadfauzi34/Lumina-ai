@@ -255,7 +255,7 @@ interface PooledTaskContext {
   taskId: string;
   progressCurrent: number;
   progressTotal: number;
-  artifacts: Array<{ name: string; type: string; content: string }>;
+  artifacts: { name: string; type: string; content: string }[];
   phaseTimes: Float64Array;
   startTime: number;
   aborted: boolean;
