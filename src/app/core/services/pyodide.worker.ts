@@ -5,6 +5,7 @@
  */
 
 import { expose } from 'comlink';
+import { Logger } from '../../utils';
 
 let pyodide: any;
 
@@ -32,11 +33,11 @@ export const workerApi = {
       for (const skill of skills) {
         if (skill.isEnabled && skill.code) {
           pyodide.FS.writeFile(skill.id, skill.code);
-          console.log(`[Pyodide] Loaded Dexie external skill: ${skill.id}`);
+          Logger.info(`[Pyodide] Loaded Dexie external skill: ${skill.id}`);
         }
       }
     } catch (e) {
-      console.warn('[Pyodide] Gagal memuat external python skills dari DB:', e);
+      Logger.error('[Pyodide] Gagal memuat external python skills dari DB:', e);
     }
 
     /**
@@ -404,7 +405,7 @@ recursive_ai.SelfOptimizer = SelfOptimizer
       try {
         await pyodide.loadPackagesFromImports(code);
       } catch (e) {
-        console.warn('Worker package load failed', e);
+        Logger.warn('Worker package load failed', e);
       }
       
       // Cap limits to prevent OOM
@@ -442,7 +443,7 @@ recursive_ai.SelfOptimizer = SelfOptimizer
         try {
             await pyodide.runPythonAsync('import gc; gc.collect()');
         } catch (e) {
-            console.error("Pyodide GC Failed", e);
+            Logger.error("Pyodide GC Failed", e);
         }
         
         // Release the Mutex lock
