@@ -8,74 +8,83 @@ describe('ToolPipeline', () => {
     pipeline = new ToolPipeline();
   });
 
+
   describe('validateType', () => {
-    it('should correctly validate string types', () => {
-      expect(pipeline.validateType('hello', 'string')).toBe(true);
-      expect(pipeline.validateType('', 'string')).toBe(true);
+    const testCases = [
+      // string
+      { value: 'hello', expectedType: 'string', result: true },
+      { value: '', expectedType: 'string', result: true },
+      { value: String('test'), expectedType: 'string', result: true },
+      { value: 123, expectedType: 'string', result: false },
+      { value: true, expectedType: 'string', result: false },
+      { value: {}, expectedType: 'string', result: false },
+      { value: [], expectedType: 'string', result: false },
+      { value: null, expectedType: 'string', result: false },
+      { value: undefined, expectedType: 'string', result: false },
 
-      expect(pipeline.validateType(123, 'string')).toBe(false);
-      expect(pipeline.validateType(true, 'string')).toBe(false);
-      expect(pipeline.validateType({}, 'string')).toBe(false);
-      expect(pipeline.validateType([], 'string')).toBe(false);
-      expect(pipeline.validateType(null, 'string')).toBe(false);
-      expect(pipeline.validateType(undefined, 'string')).toBe(false);
-    });
+      // number
+      { value: 123, expectedType: 'number', result: true },
+      { value: 0, expectedType: 'number', result: true },
+      { value: -1.5, expectedType: 'number', result: true },
+      { value: Infinity, expectedType: 'number', result: true },
+      { value: -Infinity, expectedType: 'number', result: true },
+      { value: Number.MAX_VALUE, expectedType: 'number', result: true },
+      { value: NaN, expectedType: 'number', result: false },
+      { value: '123', expectedType: 'number', result: false },
+      { value: true, expectedType: 'number', result: false },
+      { value: {}, expectedType: 'number', result: false },
+      { value: [], expectedType: 'number', result: false },
+      { value: null, expectedType: 'number', result: false },
+      { value: undefined, expectedType: 'number', result: false },
 
-    it('should correctly validate number types', () => {
-      expect(pipeline.validateType(123, 'number')).toBe(true);
-      expect(pipeline.validateType(0, 'number')).toBe(true);
-      expect(pipeline.validateType(-1.5, 'number')).toBe(true);
+      // boolean
+      { value: true, expectedType: 'boolean', result: true },
+      { value: false, expectedType: 'boolean', result: true },
+      { value: Boolean(1), expectedType: 'boolean', result: true },
+      { value: 'true', expectedType: 'boolean', result: false },
+      { value: 1, expectedType: 'boolean', result: false },
+      { value: 0, expectedType: 'boolean', result: false },
+      { value: {}, expectedType: 'boolean', result: false },
+      { value: [], expectedType: 'boolean', result: false },
+      { value: null, expectedType: 'boolean', result: false },
+      { value: undefined, expectedType: 'boolean', result: false },
 
-      expect(pipeline.validateType(NaN, 'number')).toBe(false); // Should reject NaN
-      expect(pipeline.validateType('123', 'number')).toBe(false);
-      expect(pipeline.validateType(true, 'number')).toBe(false);
-      expect(pipeline.validateType({}, 'number')).toBe(false);
-      expect(pipeline.validateType([], 'number')).toBe(false);
-      expect(pipeline.validateType(null, 'number')).toBe(false);
-      expect(pipeline.validateType(undefined, 'number')).toBe(false);
-    });
+      // array
+      { value: [], expectedType: 'array', result: true },
+      { value: [1, 2, 3], expectedType: 'array', result: true },
+      { value: ['a', 'b'], expectedType: 'array', result: true },
+      { value: new Array(5), expectedType: 'array', result: true },
+      { value: '[]', expectedType: 'array', result: false },
+      { value: 123, expectedType: 'array', result: false },
+      { value: true, expectedType: 'array', result: false },
+      { value: {}, expectedType: 'array', result: false },
+      { value: null, expectedType: 'array', result: false },
+      { value: undefined, expectedType: 'array', result: false },
 
-    it('should correctly validate boolean types', () => {
-      expect(pipeline.validateType(true, 'boolean')).toBe(true);
-      expect(pipeline.validateType(false, 'boolean')).toBe(true);
+      // object
+      { value: {}, expectedType: 'object', result: true },
+      { value: { a: 1 }, expectedType: 'object', result: true },
+      { value: Object.create(null), expectedType: 'object', result: true },
+      { value: new Date(), expectedType: 'object', result: true },
+      { value: null, expectedType: 'object', result: false }, // null is not an object according to validateType
+      { value: [], expectedType: 'object', result: false }, // array is not an object according to validateType
+      { value: '{}', expectedType: 'object', result: false },
+      { value: 123, expectedType: 'object', result: false },
+      { value: true, expectedType: 'object', result: false },
+      { value: undefined, expectedType: 'object', result: false },
 
-      expect(pipeline.validateType('true', 'boolean')).toBe(false);
-      expect(pipeline.validateType(1, 'boolean')).toBe(false);
-      expect(pipeline.validateType(0, 'boolean')).toBe(false);
-      expect(pipeline.validateType({}, 'boolean')).toBe(false);
-      expect(pipeline.validateType([], 'boolean')).toBe(false);
-      expect(pipeline.validateType(null, 'boolean')).toBe(false);
-      expect(pipeline.validateType(undefined, 'boolean')).toBe(false);
-    });
+      // unknown types should default to true
+      { value: 'value', expectedType: 'unknown_type', result: true },
+      { value: 123, expectedType: 'custom', result: true },
+      { value: null, expectedType: 'any', result: true },
+      { value: undefined, expectedType: 'whatever', result: true }
+    ];
 
-    it('should correctly validate array types', () => {
-      expect(pipeline.validateType([], 'array')).toBe(true);
-      expect(pipeline.validateType([1, 2, 3], 'array')).toBe(true);
-      expect(pipeline.validateType(['a', 'b'], 'array')).toBe(true);
-
-      expect(pipeline.validateType('[]', 'array')).toBe(false);
-      expect(pipeline.validateType(123, 'array')).toBe(false);
-      expect(pipeline.validateType(true, 'array')).toBe(false);
-      expect(pipeline.validateType({}, 'array')).toBe(false);
-      expect(pipeline.validateType(null, 'array')).toBe(false);
-      expect(pipeline.validateType(undefined, 'array')).toBe(false);
-    });
-
-    it('should correctly validate object types', () => {
-      expect(pipeline.validateType({}, 'object')).toBe(true);
-      expect(pipeline.validateType({ a: 1 }, 'object')).toBe(true);
-
-      expect(pipeline.validateType(null, 'object')).toBe(false); // null should not be an object
-      expect(pipeline.validateType([], 'object')).toBe(false); // arrays should not be objects
-      expect(pipeline.validateType('{}', 'object')).toBe(false);
-      expect(pipeline.validateType(123, 'object')).toBe(false);
-      expect(pipeline.validateType(true, 'object')).toBe(false);
-      expect(pipeline.validateType(undefined, 'object')).toBe(false);
-    });
-
-    it('should return true for unknown types', () => {
-      expect(pipeline.validateType('value', 'unknown_type')).toBe(true);
-      expect(pipeline.validateType(123, 'custom')).toBe(true);
-    });
+    it.each(testCases)(
+      'should return $result when checking if $value is $expectedType',
+      ({ value, expectedType, result }) => {
+        expect(pipeline.validateType(value, expectedType)).toBe(result);
+      }
+    );
   });
 });
