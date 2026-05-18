@@ -1,0 +1,2 @@
+sed -i 's/if(confirm('\''Yakin ingin menghapus obrolan ini?'\'')) onDeleteSession.emit(session.id)/confirm('\''Yakin ingin menghapus obrolan ini?'\'') \&\& onDeleteSession.emit(session.id)/' src/app/components/sidebar.component.ts
+sed -i 's/if(confirm('\''Yakin ingin menghapus file ini?'\'')) deleteFile.emit(path)/confirm('\''Yakin ingin menghapus file ini?'\'') \&\& deleteFile.emit(path)/' src/app/components/sidebar.component.ts

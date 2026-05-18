@@ -26,7 +26,7 @@ import type { Attachment } from '../types';
             <span class="text-[12px] font-semibold text-slate-800 truncate w-[75px]">{{ att.name }}</span>
             <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none mt-0.5">{{ att.isText ? 'Doc' : 'Img' }}</span>
           </div>
-          <button type="button" (click)="onRemoveAttachment.emit(i)"
+          <button type="button" (click)="onRemoveAttachment.emit(i)" aria-label="Hapus Lampiran"
             class="absolute right-1.5 top-1/2 -translate-y-1/2 w-6 h-6 flex items-center justify-center rounded-full text-slate-400 hover:text-rose-500 hover:bg-rose-50 transition-colors shadow-sm bg-white">
             <svg class="w-3.5 h-3.5" stroke-width="2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
           </button>
@@ -35,11 +35,11 @@ import type { Attachment } from '../types';
 
       <form (submit)="onSubmit($event)" class="input-form" [ngClass]="{'focus': isFocused}">
         <input type="file" #fileInput (change)="onFileChange($event)" class="hidden" multiple />
-        <button type="button" (click)="fileInput.click()" class="input-btn" title="Lampirkan File">
+        <button type="button" (click)="fileInput.click()" class="input-btn" title="Lampirkan File" aria-label="Lampirkan File">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
         </button>
 
-        <textarea #textareaRef
+        <textarea #textareaRef aria-label="Pesan Chat"
           [(ngModel)]="input"
           (ngModelChange)="onInputChange.emit($event)"
           (keydown)="handleKeyDown($event, textareaRef)"
@@ -51,11 +51,11 @@ import type { Attachment } from '../types';
           rows="1"
           [disabled]="isLoading"></textarea>
 
-        <button *ngIf="!input.trim() && attachments.length === 0 && !isLoading" type="button" class="input-btn" title="Gunakan Suara">
+        <button *ngIf="!input.trim() && attachments.length === 0 && !isLoading" type="button" class="input-btn" title="Gunakan Suara" aria-label="Gunakan Suara">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
         </button>
 
-        <button type="submit" 
+        <button type="submit" aria-label="Kirim Pesan"
           [disabled]="isDisabled()"
           class="btn-send"
           [ngClass]="{'disabled': isDisabled(), 'generating': isLoading}">

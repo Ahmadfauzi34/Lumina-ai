@@ -1,0 +1,3 @@
+## 2026-05-18 - Added Indonesian ARIA labels and confirmation dialogs
+**Learning:** The application uses Indonesian for its UI text. When adding ARIA labels or confirmation dialogs, it is important to match the language to maintain a consistent user experience. Also, the build command will fail if functions used in component templates (like `confirm`) are not declared in the component's class or are not part of the standard Angular template scope.
+**Action:** Next time, carefully observe the language used in the component template and ensure any new text matches it. When adding browser API calls like `confirm()` to templates, wrap them in a component method first to avoid template compilation errors.

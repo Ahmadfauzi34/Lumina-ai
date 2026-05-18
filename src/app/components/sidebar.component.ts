@@ -18,7 +18,7 @@ import { ChatSessionDB } from '../core/services/db.service';
             </div>
             <span class="sidebar-brand-text">Lumina</span>
           </div>
-          <button class="sidebar-close" (click)="onClose.emit()">
+          <button class="sidebar-close" (click)="onClose.emit()" aria-label="Tutup Sidebar">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
           </button>
         </div>
@@ -38,7 +38,7 @@ import { ChatSessionDB } from '../core/services/db.service';
             <div class="session-title">{{ session.title }}</div>
             <div class="session-date">{{ session.updatedAt | date:'shortDate' }}</div>
           </div>
-          <button class="right-delete" (click)="$event.stopPropagation(); onDeleteSession.emit(session.id)" title="Hapus Chat">
+          <button class="right-delete" (click)="$event.stopPropagation(); confirmDeleteSession(session.id)" title="Hapus Chat" aria-label="Hapus Chat">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
           </button>
         </div>
@@ -69,12 +69,12 @@ import { ChatSessionDB } from '../core/services/db.service';
             <span class="workspace-filename truncate">{{ path }}</span>
           </div>
           <div class="flex items-center shrink-0">
-            <button (click)="$event.stopPropagation(); downloadFile.emit(path)"
+            <button (click)="$event.stopPropagation(); downloadFile.emit(path)" aria-label="Download File"
               class="p-1 rounded-md hover:bg-slate-700/50 transition-all text-slate-400 hover:text-white"
               title="Download File">
               <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             </button>
-            <button (click)="$event.stopPropagation(); deleteFile.emit(path)"
+            <button (click)="$event.stopPropagation(); confirmDeleteFile(path)" aria-label="Hapus File"
               class="p-1 rounded-md hover:bg-red-500/20 transition-all text-slate-400 hover:text-red-400 ml-1"
               title="Hapus File">
               <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
@@ -104,5 +104,16 @@ export class SidebarComponent {
   @Output() downloadFile = new EventEmitter<string>();
   @Output() deleteFile = new EventEmitter<string>();
   @Output() onOpenPythonSkills = new EventEmitter<void>();
-}
 
+  confirmDeleteSession(id: string) {
+    if (confirm('Yakin ingin menghapus obrolan ini?')) {
+      this.onDeleteSession.emit(id);
+    }
+  }
+
+  confirmDeleteFile(path: string) {
+    if (confirm('Yakin ingin menghapus file ini?')) {
+      this.deleteFile.emit(path);
+    }
+  }
+}
