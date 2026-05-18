@@ -37,7 +37,7 @@ export const workerApi = {
         }
       }
     } catch (e) {
-      Logger.error('[Pyodide] Gagal memuat external python skills dari DB:', e);
+      Logger.warn('[Pyodide] Gagal memuat external python skills dari DB:', e);
     }
 
     /**
