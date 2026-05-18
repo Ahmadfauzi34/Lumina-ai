@@ -1,0 +1,5 @@
+sed -i 's/<button type="button" (click)="onRemoveAttachment.emit(i)"/<button type="button" (click)="onRemoveAttachment.emit(i)" aria-label="Hapus Lampiran"/' src/app/components/chat-input.component.ts
+sed -i 's/<button type="button" (click)="fileInput.click()" class="input-btn" title="Lampirkan File">/<button type="button" (click)="fileInput.click()" class="input-btn" title="Lampirkan File" aria-label="Lampirkan File">/' src/app/components/chat-input.component.ts
+sed -i 's/<button \*ngIf="!input.trim() \&\& attachments.length === 0 \&\& !isLoading" type="button" class="input-btn" title="Gunakan Suara">/<button \*ngIf="!input.trim() \&\& attachments.length === 0 \&\& !isLoading" type="button" class="input-btn" title="Gunakan Suara" aria-label="Gunakan Suara">/' src/app/components/chat-input.component.ts
+sed -i 's/<button type="submit"/<button type="submit" aria-label="Kirim Pesan"/' src/app/components/chat-input.component.ts
+sed -i 's/<textarea #textareaRef/<textarea #textareaRef aria-label="Pesan Chat"/' src/app/components/chat-input.component.ts
