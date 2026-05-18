@@ -80,13 +80,13 @@ export class GeminiService {
             DEFAULT_CONFIG.systemInstruction += `\n\nEXTERNAL PYTHON SKILLS (Bisa di-import di execute_python):\n- ${activeSkills.join('\n- ')}`;
           }
         } catch (e) {
-          console.warn('Gagal memuat db python skills', e);
+          this.logger.warn('Gagal memuat db python skills', e);
         }
       } else {
-        console.warn('Gagal memuat orchestrator.md', res.statusText);
+        this.logger.warn('Gagal memuat orchestrator.md', res.statusText);
       }
     } catch (e) {
-      console.warn('Gagal memuat orchestrator.md', e);
+      this.logger.warn('Gagal memuat orchestrator.md', e);
     }
   }
 
@@ -170,7 +170,7 @@ export class GeminiService {
               }
 
               if (isSearchLimit && !isSearchDisabled) {
-                 console.warn(`Search quota reached. Disabling Google Search and retrying...`);
+                 this.logger.warn(`Search quota reached. Disabling Google Search and retrying...`);
                  isSearchDisabled = true;
                  chatSession = activeAiClient.chats.create({
                     model: modelsToTry[currentModelIdx],
@@ -185,7 +185,7 @@ export class GeminiService {
                       currentModelIdx++;
                   }
                   
-                  console.warn(`API Limit/Unavailable reached, pindah konfigurasi... (Attempt ${retryCount + 1})`);
+                  this.logger.warn(`API Limit/Unavailable reached, pindah konfigurasi... (Attempt ${retryCount + 1})`);
                   
                   activeAiClient = availableKeys.length > 0 ? new GoogleGenAI({ apiKey: availableKeys[currentKeyIdx] }) : activeAiClient;
                   chatSession = activeAiClient.chats.create({
